@@ -2,18 +2,23 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);  
+app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
+//... code to c
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket){
   //Informando que alguém entrou na sala
-  io.emit("Alguém entrou na sala"); 
+  io.emit('chat',"in"); 
   console.log("alguém entrou"); 
 
   //Tratando quando alguém sai
   socket.on('disconnect',function(){
-  	io.emit('Alguém saiu da sala'); 
+  	io.emit('chat','out'); 
     console.log("alguém saiu"); 
   }); 
 

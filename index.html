@@ -70,6 +70,16 @@
 
       socket.on('chat',function(msg){
         //Escrever a mensagem aqui; 
+        
+        switch(msg){
+            case 'in': 
+                alertify.success("Alguém entrou na sala"); 
+            return; 
+
+            case 'out': 
+                alertify.error("Alguém saiu da sala"); 
+            return; 
+        }
         var data = msg.split('-'); 
 
         var line = ' <div class="msg-wrap"> <div class="media msg"> <a class="pull-left" href="#"> <img class="media-object" src="http://lorempixel.com/64/64/" alt="64x64" style="width: 32px; height: 32px;" src=""> </a> <div class="media-body"> <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small> <h5 class="media-heading">'+data[0]+'</h5> <small class="col-lg-10">'+data[1]+'</small> </div></div></div>'; 
