@@ -7,5 +7,5 @@
 	   "start": "server.js"
 	},
 	"main": "server.js",
-	"dependencies": { "express" : "", "socket.io" : "" }
+	"dependencies": { "express" : "", "socket.io" : "", "http" : "" }
 }
