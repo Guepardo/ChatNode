@@ -1,0 +1,11 @@
+{
+	"name": "Guepardo",
+    "description": "ow redhat server",
+    "private": "true",
+    "version": "1.0.0",
+	"scripts": {
+	   "start": "server.js"
+	},
+	"main": "server.js",
+	"dependencies": { "express" : "", "socket.io" : "" }
+}

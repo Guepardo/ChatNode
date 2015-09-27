@@ -9,15 +9,18 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   //Informando que alguém entrou na sala
   io.emit("Alguém entrou na sala"); 
+  console.log("alguém entrou"); 
 
   //Tratando quando alguém sai
   socket.on('disconnect',function(){
-  	console.log('Alguém saiu'); 
+  	io.emit('Alguém saiu da sala'); 
+    console.log("alguém saiu"); 
   }); 
 
   //Tratando quando alguém manda uma mensagem
   socket.on('chat',function(msg){
-  	io.emit(msg); 
+  	io.emit('chat',msg); 
+    console.log("mensagem : " + msg ); 
   }); 
 
 });
